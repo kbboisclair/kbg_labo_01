@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labo01 | Bookmarks</title>
+    <style>
+      .formControl {
+        display: block;
+        padding: 5px;
+        margin: 8px;
+        width: 90%;
+        border-radius: 4px;
+        border: 1px solid gray;
+      }
+
+      .radiobtn {
+        width: 20px;
+        margin: 5px;
+        padding: 0px;
+      }
+
+      .groupbox {
+        display: grid;
+        grid-template-columns: 80px 20px;
+      }
+      fieldset {
+        margin: 8px;
+        width: 190px;
+        border-radius: 4px;
+        border: 1px solid gray;
+      }
+
+      .main {
+        margin: auto;
+        width: 200px;
+        border-radius: 4px;
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <fieldset class="main">
+      <legend>Création</legend>
+      <form
+        id="subscribeform"
+        action="https://kjsdfn-kbg-labo-01-serveur.glitch.me/api/bookmarks"
+        method="POST"
+      >
+        <input
+          class="formControl"
+          name="Title"
+          placeholder="Titre"
+          required
+          oninvalid="this.setCustomValidity('Veuillez entrer le titre')"
+          oninput="this.setCustomValidity('')"
+        />
+        <input
+          class="formControl"
+          name="Url"
+          placeholder="Url"
+          required
+          oninvalid="this.setCustomValidity('Veuillez entrer l\'Url du site')"
+          oninput="this.setCustomValidity('')"
+        />
+        <input
+          class="formControl phone"
+          name="Category"
+          placeholder="Catégory"
+          required
+          oninvalid="this.setCustomValidity('Veuillez entrer une catégorie')"
+          oninput="this.setCustomValidity('')"
+          onchange="this.setCustomValidity('')"
+        />
+        <br />
+        <input class="formControl" type="submit" value="Enregistrer..." />
+        <input
+        class="formControl"
+        type="reset"
+        value="Annuler"
+        onclick="return confirm('Annuler');"
+      />
+      </form>
+    </fieldset>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.js"></script>
+    <script>
+      // $(() => {
+      //   $(".phone").mask("(999) 999-9999");
+      //   $(".zipcode").mask("a9a 9a9");
+      // });
+    </script>
+  </body>
+</html>

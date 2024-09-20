@@ -47,10 +47,17 @@ async function renderBookmarks() {
     $("#abort").hide();
     let bookmarks = await API_GetBookmarks();
     eraseContent();
+    let tabCategory = []
     if (bookmarks !== null) {
         bookmarks.forEach(bookmark => {
-            $("#content").append(renderBookmark(bookmark));
+            tabCategory.push(bookmark.Category)
+            if(selectedCategory == bookmark.Category){
+                $("#content").append(renderBookmark(bookmark));
+            } else if (selectedCategory == "")
+                $("#content").append(renderBookmark(bookmark));
         });
+        let uniqueCategory = [... new Set(tabCategory)];
+        updateDropDownMenu(uniqueCategory);
         restoreContentScrollPosition();
         // Attached click events on command icons
         $(".editCmd").on("click", function () {
